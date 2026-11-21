@@ -166,20 +166,64 @@ h1,h2,h3{font-weight:600;line-height:1.15;margin:0}
 @media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* podstrony (21.11) */
+.nav{gap:clamp(12px,1.5vw,28px);font-size:16px}
+@media (min-width:1500px){.nav{font-size:17px}}
+@media (max-width:1100px){
+ .menu-bt{display:block}
+ .nav{display:none;position:absolute;left:0;right:0;top:var(--hd);background:var(--bg);border-bottom:1.5px solid var(--ink);flex-direction:column;gap:0;padding:8px var(--pad) 16px;max-height:calc(100svh - var(--hd));overflow-y:auto}
+ .nav.otw{display:flex}
+ .nav a{padding:12px 0;font-size:20px;border-bottom:1px solid #ddd}
+ .nav a:last-child{border-bottom:0}
+}
+.nav a[aria-current]{border-bottom-color:var(--ink)}
+.str{padding:clamp(48px,7vw,104px) 0 clamp(56px,8vw,120px)}
+.str h1{font-size:clamp(36px,4.6vw,64px)}
+.str .wst{max-width:40em;margin:14px 0 0;color:var(--mut)}
+.str h2{font-size:clamp(28px,3vw,42px);margin-top:clamp(48px,6vw,88px)}
+.tekst{max-width:40em;margin-top:clamp(24px,3.4vw,40px)}
+.tekst p{margin:0 0 1.1em}
+.tekst ul{margin:0 0 1.2em;padding-left:1.2em}
+.tekst li{margin:0 0 .5em}
+.tekst .drobne{font-size:.86em;color:var(--mut);border-top:1.5px solid var(--ink);padding-top:1em;margin-top:1.6em}
+.tekst blockquote{margin:1.4em 0;padding:.2em 0 .2em 1em;border-left:3px solid var(--ink);font-weight:600;font-size:1.08em}
+.tekst blockquote p{margin:0}
+.ramka{border:1.5px solid var(--ink);border-radius:12px;padding:16px 20px;margin:1.6em 0 0}
+.ramka p{margin:0}
+.wsp{list-style:none;padding:0!important;border-top:1.5px solid var(--ink)}
+.wsp li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;padding:14px 0;margin:0!important;border-bottom:1.5px solid var(--ink)}
+.wsp a{font-weight:600}
+.wsp span{color:var(--mut)}
+.str .dwie{margin-top:clamp(24px,3.4vw,40px)}
+@media (min-width:861px){.str .dwie>div:last-child{position:sticky;top:calc(var(--hd) + 24px)}}
+.kontakt.str{padding-top:clamp(48px,7vw,104px)}
+.kontakt h1{color:#fff}
+/* strona glowna */
+.spis{list-style:none;margin:clamp(24px,3.4vw,40px) 0 0;padding:0;border-top:1.5px solid var(--ink);columns:2;column-gap:clamp(32px,6vw,96px)}
+.spis li{break-inside:avoid;border-bottom:1.5px solid var(--ink)}
+.spis a{display:grid;grid-template-columns:2.2em minmax(0,1fr);padding:12px 0;text-decoration:none;font-size:clamp(18px,1.6vw,22px)}
+.spis a:hover span:last-child{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1.5px}
+.spis b{font-weight:600}
+@media (max-width:760px){.spis{columns:1}}
+.dalej{margin:22px 0 0;font-weight:600}
 </style>
 </head>
 <body>
 <header class="hd">
  <div class="wrap">
-  <a class="logo" href="#top">aniodbiologii</a>
+  <a class="logo" href="./">aniodbiologii</a>
   <button class="menu-bt" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav class="nav" id="nav" aria-label="Główne menu">
-   <a href="#filmy">Filmy</a>
-   <a href="#o-mnie">O mnie</a>
-   <a href="#aktualnosci">Aktualności</a>
-   <a href="#materialy">Materiały</a>
-   <a href="#faq">FAQ</a>
-   <a href="#kontakt">Kontakt</a>
+   <a href="nauka/">Nauka</a>
+   <a href="aktualnosci/">Aktualności</a>
+   <a href="o-mnie/">O mnie</a>
+   <a href="misja/">Misja</a>
+   <a href="deklaracja-no-ai/">Deklaracja NO-AI</a>
+   <a href="wspieranie/">Wspieranie</a>
+   <a href="download/">Download</a>
+   <a href="faq/">FAQ</a>
+   <a href="kontakt/">Kontakt</a>
   </nav>
  </div>
 </header>
@@ -190,208 +234,56 @@ h1,h2,h3{font-weight:600;line-height:1.15;margin:0}
  <h1>Kanał Ani od biologii</h1>
  <p class="slodko">Biologia na słodko :3</p>
  <p class="opis">Filmy z biologii do matury ułożone po kolei: od chemii życia, przez komórkę i metabolizm, aż po genetykę.</p>
- <a class="bt" href="#filmy">Zacznij od pierwszego działu</a>
+ <a class="bt" href="nauka/">Zacznij od pierwszego działu</a>
 </section>
 
-<section class="sek" id="filmy">
+<section class="sek">
  <div class="wrap">
-  <h2>Filmy po kolei</h2>
-  <p class="wst">Działy w kolejności nauki. Kliknij dział, żeby zobaczyć odcinki, a potem okładkę, żeby włączyć film.</p>
-  <ol class="dzialy">
-<li><details open data-pl="PLe06Yfmel5bREqS6sKWcVDro0OYMbyoTj">
-<summary><span class="nr">1</span><span class="nazwa">Chemia życia</span><span class="meta">7 filmów · 2 h 16 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bREqS6sKWcVDro0OYMbyoTj" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bSDl9yeSyuig53euq9CAUGc">
-<summary><span class="nr">2</span><span class="nazwa">Cytologia (komórka)</span><span class="meta">14 filmów · 4 h 22 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bSDl9yeSyuig53euq9CAUGc" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bS6Lvy0SIohsT-98DQfPUpO">
-<summary><span class="nr">3</span><span class="nazwa">Metabolizm</span><span class="meta">11 filmów · 3 h 34 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bS6Lvy0SIohsT-98DQfPUpO" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTaP0lLuSjbQlX4vs4qaAqY">
-<summary><span class="nr">4</span><span class="nazwa">Systematyka biologiczna</span><span class="meta">3 filmy · 55 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTaP0lLuSjbQlX4vs4qaAqY" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bRqPWMcHY8kMYxUkp-lqlfM">
-<summary><span class="nr">5</span><span class="nazwa">Wirusy</span><span class="meta">4 filmy · 1 h 8 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bRqPWMcHY8kMYxUkp-lqlfM" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bSIZ4zI3T3-ki1do_Spf0Cw">
-<summary><span class="nr">6</span><span class="nazwa">Bakterie, protisty, grzyby</span><span class="meta">12 filmów · 3 h 43 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bSIZ4zI3T3-ki1do_Spf0Cw" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTBvFyMUBHMUWSA4BRiojEI">
-<summary><span class="nr">7</span><span class="nazwa">Rośliny - anatomia i systematyka</span><span class="meta">13 filmów · 4 h 10 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTBvFyMUBHMUWSA4BRiojEI" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTSpA-2Rxwze7uqAbd7jH1k">
-<summary><span class="nr">8</span><span class="nazwa">Fizjologia roślin</span><span class="meta">6 filmów · 2 h 13 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTSpA-2Rxwze7uqAbd7jH1k" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTzaVefjj8cytuvySpWKH-m">
-<summary><span class="nr">9</span><span class="nazwa">Różnorodność zwierząt</span><span class="meta">18 filmów · 6 h 20 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTzaVefjj8cytuvySpWKH-m" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bRwyCsrdD5-H32tdlXVRQqD">
-<summary><span class="nr">10</span><span class="nazwa">Anatomia i fizjologia</span><span class="meta">8 filmów · 3 h 2 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bRwyCsrdD5-H32tdlXVRQqD" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bQOZ46D_ym7cS3lbTIdbjOr">
-<summary><span class="nr">11</span><span class="nazwa">Genetyka</span><span class="meta">22 filmy · 8 h 30 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bQOZ46D_ym7cS3lbTIdbjOr" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
+  <h2>Nauka do matury po kolei</h2>
+  <p class="wst">Jedenaście działów w kolejności nauki. Kliknij dział, żeby przejść do odcinków.</p>
+  <ol class="spis">
+   <li><a href="nauka/#d1"><b>1</b><span>Chemia życia</span></a></li>
+   <li><a href="nauka/#d2"><b>2</b><span>Cytologia (komórka)</span></a></li>
+   <li><a href="nauka/#d3"><b>3</b><span>Metabolizm</span></a></li>
+   <li><a href="nauka/#d4"><b>4</b><span>Systematyka biologiczna</span></a></li>
+   <li><a href="nauka/#d5"><b>5</b><span>Wirusy</span></a></li>
+   <li><a href="nauka/#d6"><b>6</b><span>Bakterie, protisty, grzyby</span></a></li>
+   <li><a href="nauka/#d7"><b>7</b><span>Rośliny - anatomia i systematyka</span></a></li>
+   <li><a href="nauka/#d8"><b>8</b><span>Fizjologia roślin</span></a></li>
+   <li><a href="nauka/#d9"><b>9</b><span>Różnorodność zwierząt</span></a></li>
+   <li><a href="nauka/#d10"><b>10</b><span>Anatomia i fizjologia</span></a></li>
+   <li><a href="nauka/#d11"><b>11</b><span>Genetyka</span></a></li>
   </ol>
+  <p class="dalej"><a href="nauka/">Wszystkie działy i treści ponad program</a></p>
  </div>
 </section>
 
-<section class="sek" id="poza">
+<section class="sek">
  <div class="wrap">
-  <h2>Poza programem</h2>
-  <p class="wst">Zadania maturalne, treści ponadprogramowe, rozmowy o nauce i reszta kanału.</p>
-  <ul class="dzialy bez-nr">
-<li><details data-pl="PLe06Yfmel5bSmlpN5awExDbXq7hbdjt-C">
-<summary><span class="nazwa">Zadania maturalne</span><span class="meta">8 filmów · 3 h 28 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bSmlpN5awExDbXq7hbdjt-C" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bQay7Qo3XOhzkZfd6d-ov87">
-<summary><span class="nazwa">Biologia+ (treści ponadprogramowe)</span><span class="meta">8 filmów · 1 h 51 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bQay7Qo3XOhzkZfd6d-ov87" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bSAm1pD_Hwx5LDFgOmyycHO">
-<summary><span class="nazwa">Bio-dodatki</span><span class="meta">3 filmy · 45 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bSAm1pD_Hwx5LDFgOmyycHO" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bRC8sytHUM5mvUwAz9NvWks">
-<summary><span class="nazwa">Nauka i życie</span><span class="meta">5 filmów · 1 h 53 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bRC8sytHUM5mvUwAz9NvWks" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTRndcIUkGYv8KS8O85Gfv4">
-<summary><span class="nazwa">Wywiady</span><span class="meta">1 film · 11 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTRndcIUkGYv8KS8O85Gfv4" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bQG1JmSf19B9Y2a-P-1w7Pq">
-<summary><span class="nazwa">Study with me</span><span class="meta">1 film · 1 h 56 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bQG1JmSf19B9Y2a-P-1w7Pq" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bTZcJEJ-NywVK_Sv9fF_pBv">
-<summary><span class="nazwa">Off topic</span><span class="meta">10 filmów · 2 h 14 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bTZcJEJ-NywVK_Sv9fF_pBv" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-<li><details data-pl="PLe06Yfmel5bS7UrHrqjteEgYL0gc-419_">
-<summary><span class="nazwa">Książki i kursy maturalne</span><span class="meta">10 filmów · 1 h 56 min</span><span class="znak" aria-hidden="true"></span></summary>
-<div class="odc"></div>
-<p class="calosc"><a href="https://www.youtube.com/playlist?list=PLe06Yfmel5bS7UrHrqjteEgYL0gc-419_" target="_blank" rel="noopener">Cała playlista na YouTube</a></p>
-</details></li>
-  </ul>
+  <h2>Cześć, tu Ania od biologii</h2>
+  <p class="wst">To ja tworzę kanał „aniodbiologii”: rysunki, dźwięk i całą merytorykę. Wszystkie treści na kanale są od początku do końca moim dziełem, bez generatywnej AI.</p>
+  <div class="linki"><a href="o-mnie/">O mnie</a><a href="misja/">Moja misja</a><a href="deklaracja-no-ai/">Deklaracja NO-AI</a><a href="wspieranie/">Wspieranie kanału</a></div>
  </div>
 </section>
 
-<section class="sek" id="o-mnie">
- <div class="wrap">
-  <h2>O mnie</h2>
-  <div class="dwie">
-   <div>
-    <p>Cześć, nazywam się Ania i jestem nauczycielką biologii. Ukończyłam wydział biologii na Uniwersytecie Warszawskim, a uczenie miałam od zawsze we krwi, w genach, czy jakkolwiek zechcecie to ująć.</p>
-    <p>Jeśli jesteś wzrokowcem, najlepiej zapamiętujesz przy pomocy obrazków, ale też nudzą Cię już typowe schematy i stockowe zdjęcia z podręczników, to myślę, że moje filmy będą w sam raz dla Ciebie.</p>
-    <p class="wolny">Kanał wolny od A.I.</p>
-    <p class="fakty">Na YouTube od sierpnia 2020 roku · 160 tys. subskrybentów · 186 filmów</p>
-    <div class="linki"><a href="https://www.youtube.com/@aniodbiologii" target="_blank" rel="noopener">Kanał na YouTube</a><a href="https://discord.gg/QA9jetQMvX" target="_blank" rel="noopener">Zajęcia na Discordzie</a></div>
-   </div>
-   <div>
-    <div class="fas"><button class="th" type="button" data-id="GNDQBDxmKDE" aria-label="Odtwórz: Co nieco o mnie"><img src="https://i.ytimg.com/vi/GNDQBDxmKDE/mqdefault.jpg" srcset="https://i.ytimg.com/vi/GNDQBDxmKDE/mqdefault.jpg 320w, https://i.ytimg.com/vi/GNDQBDxmKDE/hqdefault.jpg 480w, https://i.ytimg.com/vi/GNDQBDxmKDE/sddefault.jpg 640w" sizes="(max-width:760px) 92vw, 560px" width="320" height="180" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button></div>
-    <p class="podpis">Co nieco o mnie - studia, praca, podręczniki... takie tam</p>
-   </div>
-  </div>
- </div>
-</section>
-
-<section class="sek" id="aktualnosci">
- <div class="wrap">
-  <h2>Aktualności</h2>
-  <article class="wpis">
-   <div class="fas"><button class="th" type="button" data-id="hW29_5ufJ_s" aria-label="Odtwórz: Orędzie na rok szkolny 2026/27"><img src="https://i.ytimg.com/vi/hW29_5ufJ_s/mqdefault.jpg" srcset="https://i.ytimg.com/vi/hW29_5ufJ_s/mqdefault.jpg 320w, https://i.ytimg.com/vi/hW29_5ufJ_s/hqdefault.jpg 480w, https://i.ytimg.com/vi/hW29_5ufJ_s/sddefault.jpg 640w" sizes="(max-width:760px) 92vw, 560px" width="320" height="180" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button></div>
-   <div>
-    <h3>Orędzie na rok szkolny 2026/27</h3>
-    <p class="kiedy">wpis przykładowy · data wpisu</p>
-    <p>Tu pojawi się treść wpisu: kilka zdań, zdjęcie albo film z kanału. Wpisy dodaje się w panelu strony, tak jak na blogu.</p>
-    <a href="#aktualnosci">Czytaj dalej</a>
-   </div>
-  </article>
-  <p class="wiecej">Kolejne wpisy ustawiają się tu od najnowszego.</p>
- </div>
-</section>
-
-<section class="sek" id="materialy">
- <div class="wrap">
-  <h2>Materiały do pobrania</h2>
-  <p class="wst">Notatki do filmów w PDF, uporządkowane według działów.</p>
-  <ul class="mat">
-   <li><b>Tkanki roślinne - notatka</b><span class="dz">Rośliny - anatomia i systematyka</span><a href="https://www.youtube.com/watch?v=zu782hOhCwA" target="_blank" rel="noopener">Pobierz</a></li>
-   <li><b>Fizjologia i rozmnażanie protistów - notatka</b><span class="dz">Bakterie, protisty, grzyby</span><a href="https://www.youtube.com/watch?v=2DJOi3BATKg" target="_blank" rel="noopener">Pobierz</a></li>
-   <li><b>Cykl mocznikowy - notatka</b><span class="dz">Biologia+</span><a href="https://www.youtube.com/watch?v=ezBEczPXzdk" target="_blank" rel="noopener">Pobierz</a></li>
-  </ul>
-  <p class="uwaga">W podglądzie przyciski prowadzą do filmów, w których te notatki są udostępnione. Na stronie będą to pliki PDF albo linki do Google Drive.</p>
- </div>
-</section>
-
-<section class="sek" id="faq">
- <div class="wrap">
-  <h2>Najczęstsze pytania</h2>
-  <p class="wst">Przykładowe pytania - tu trafią te, które uczniowie zadają najczęściej, razem z odpowiedziami.</p>
-  <div class="faq">
-   <details><summary>Od którego filmu zacząć naukę do matury?</summary><p>Miejsce na odpowiedź.</p></details>
-   <details><summary>Czy filmy wystarczą do matury rozszerzonej?</summary><p>Miejsce na odpowiedź.</p></details>
-   <details><summary>Skąd pobrać notatki z filmów?</summary><p>Miejsce na odpowiedź.</p></details>
-   <details><summary>Jak dołączyć do zajęć na Discordzie?</summary><p>Miejsce na odpowiedź.</p></details>
-  </div>
- </div>
-</section>
-
-<section class="sek kontakt" id="kontakt">
+<section class="sek kontakt">
  <div class="wrap">
   <h2>Kontakt</h2>
   <p class="wst">Pytania i propozycje współpracy.</p>
-  <form class="form" id="form" novalidate>
-   <div><label for="f-imie">Imię</label><input id="f-imie" name="imie" autocomplete="name"></div>
-   <div><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
-   <div class="cala"><label for="f-tresc">Wiadomość</label><textarea id="f-tresc" name="tresc"></textarea></div>
-   <button class="bt" type="submit">Wyślij</button>
-   <p class="komunikat" id="kom" aria-live="polite"></p>
-  </form>
-  <div class="linki"><a href="https://www.youtube.com/@aniodbiologii" target="_blank" rel="noopener">YouTube</a><a href="https://discord.gg/QA9jetQMvX" target="_blank" rel="noopener">Discord</a></div>
+  <p class="dalej"><a href="kontakt/">Napisz wiadomość</a></p>
  </div>
 </section>
 </main>
 
 <footer class="stopka">
  <div class="wrap">
-  <span>© <span id="rok">2026</span> Bardzo Mały Żuczek sp. z o.o. · podgląd koncepcji strony</span>
+  <span>© <span id="rok">2026</span> Bardzo Mały Żuczek sp. z o.o. · podgląd strony</span>
   <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=aniodbiologii-koncepcja&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
  </div>
 </footer>
 
 <script>
-const FILMY={"PLe06Yfmel5bREqS6sKWcVDro0OYMbyoTj":[["aJpw-nDYhCw","Mikroelementy i makroelementy","18:42"],["VicFLtnaULk","Właściwości wody, rola wody w organizmach","18:27"],["9VzbZ8VY_eo","Węglowodany czyli cukry","23:24"],["S9qfWXUCKyk","Białka (proteiny) funkcje białek","13:55"],["5wCmb_qwqkU","Białka (proteiny) - budowa białek","21:28"],["BWNKPYlbOSc","Tłuściutkie lipidy (tłuszcze)","20:22"],["_GO4X9GLeVQ","Kwasy nukleinowe, DNA i RNA","19:56"]],"PLe06Yfmel5bSDl9yeSyuig53euq9CAUGc":[["br7wFEYyAA0","Budowa komórki, ogólne wiadomości","19:31"],["XGqv8fi4_II","Budowa błon biologicznych, błony komórkowe","12:27"],["RZnEHXZ0oZo","Transport przez błony komórkowe","19:48"],["pu_jFH2-Coo","Jądro komórkowe","16:08"],["Dp5mFiqsXro","Cytoszkielet i cytoplazma","20:29"],["-qdoETgNxHQ","Mitochondria, chloroplasty i (inne) plastydy","17:14"],["AcfM8UQIg0c","Teoria endosymbiozy - pochodzenie mitochondriów i plastydów","13:52"],["wJwl1zbrlZM","Pozostałe organella cz.1: ER i aparat Golgiego","22:10"],["sxuvZsnrj84","Pozostałe organella i struktury cz.2 - Rybosomy, peroksysomy, lizosomy, wakuole","23:27"],["94MX9YJqCjs","Ściana komórkowa i połączenia międzykomórkowe","15:58"],["TfHaAPbJiEc","Cykl komórkowy, ploidalność i inne pojęcia","24:16"],["3p98u36Aq2k","Mitoza podział mitotyczny","17:29"],["yLw7lUKOy5Y","Mejoza podział mejotyczny","19:11"],["_kKnykkaMj8","Apoptoza - programowana śmierć komórki przebieg i funkcje","20:16"]],"PLe06Yfmel5bS6Lvy0SIohsT-98DQfPUpO":[["VXsCpGX2ZH8","Informacje ogólne i trochę o enzymach","21:24"],["OovW1CkcBvc","Enzymy - ciąg dalszy","20:47"],["7RF3NB57UUc","Enzymy - dokończenie (inhibicja, aktywacja)","16:21"],["2FUMOtWvIYA","Pozostali bohaterowie metabolizmu (ATP, NADP, NAD, FAD)","21:04"],["gOGjR-r-yiA","Autotrofia, czyli wstęp do fotosyntezy","16:27"],["Jesyr2s6f90","Proces fotosyntezy cz. 1 faza jasna przebieg","21:40"],["o-jVkZ2SBGs","Fotosynteza cz.2 faza niezależna od światła / cykl Calvina","20:45"],["eMNtRXa2cms","Fosforylacja cykliczna i niecykliczna","9:57"],["P_rs3bLAXqY","Oddychanie komórkowe (tlenowe) jako gra komputerowa","26:24"],["1-6P_gjTpEk","Oddychanie beztlenowe, fermentacja, chemosynteza","24:00"],["QOx4GjwI9-g","Glukoneogeneza i glikogenoliza","16:06"]],"PLe06Yfmel5bTaP0lLuSjbQlX4vs4qaAqY":[["QtBybSoWEwo","Rodzaje klasyfikacji, rangi systematyczne, definicja gatunku, nowa PP","20:23"],["MmUBEDmF42s","Drzewa filogenetyczne, kladogramy, filogramy + zadania maturalne","18:58"],["a5Bz7WLPAf0","Taksony (grupy) mono, poli i parafiletyczne + zadania maturalne","16:08"]],"PLe06Yfmel5bRqPWMcHY8kMYxUkp-lqlfM":[["s_aKCiRLL-8","Czym są i jak działają? budowa i funkcjonowanie wirusów","20:31"],["TB8xuSyGOAo","Cykle infekcyjne, retrowirusy","13:38"],["WUjUVrz7-wc","Choroby wirusowe (maturalne) cz.1","18:14"],["uPsccmv-2no","Choroby wirusowe (maturalne) cz. 2","15:45"]],"PLe06Yfmel5bSIZ4zI3T3-ki1do_Spf0Cw":[["Ct2Uhb2iH88","Wstęp do prokariontów, archeony","16:04"],["WTpZCAEA-E4","Bakterie, cechy budowy, Gram+ i Gram-","15:35"],["bvTpNedxUeQ","Bakterie - czynności życiowe","22:26"],["g8jtr5cKbjE","Znaczenie bakterii (spoiler: ogromne!)","15:36"],["eEfKg0sbS3Y","Choroby bakteryjne (maturalne)","18:52"],["9AJhEtz0K7M","Protisty - co to za żyjątka? Przegląd protistów cz.1","17:30"],["Dsa_o2qksa0","Przegląd protistów cz.2 - Protisty roślinopodobne i grzybopodobne","17:46"],["2DJOi3BATKg","Fizjologia i rozmnażanie protistów (notatka do pobrania)","17:12"],["XdrTw_vLGQ0","Choroby protistowe, znaczenie protistów","21:13"],["RbZIVRksVNs","Grzyby - morfologia i czynności życiowe","24:53"],["sYWTGMDIUtA","Grzyby i porosty, przegląd, znaczenie","22:30"],["s55GEwZw9n8","Choroby wywoływane przez grzyby","13:41"]],"PLe06Yfmel5bTBvFyMUBHMUWSA4BRiojEI":[["Xn1DhYHaPMY","Rośliny pierwotnie wodne - krasnorosty i zielenice","20:42"],["6NlxRqb7KB4","Wyjście roślin na ląd - wstęp do roślin lądowych","17:36"],["zu782hOhCwA","Tkanki roślinne cz.1 (notatka do pobrania)","20:17"],["r-bsdVSckyY","Tkanki roślinne cz.2 (notatka do pobrania)","20:17"],["2xrT0Gkmy2A","Organy roślinne, budowa organów roślinnych","20:41"],["DFbHVdxXjZE","Modyfikacje organów roślinnych","16:17"],["ziAFxkyc71Y","Mchy cz.1 budowa, cykl życiowy, przemiana pokoleń","18:01"],["4qbKRbgbDhQ","Mchy cz.2 Znaczenie mchów (SUPER WAŻNE!)","18:35"],["BUuv5mkr4KI","Paprocie, skrzypy, widłaki - paprotniki","25:01"],["xkgjokCLZk0","Od zarodnika do nasiona - od roślin zarodnikowych do nasiennych","16:04"],["QPaDvBN0c94","Rośliny nagonasienne czyli nagozalążkowe","17:28"],["Vfu83Q_z840","Rośliny okrytonasienne (okrytozalążkowe) część 1","21:21"],["hEwNt89koU4","Rośliny okrytonasienne część 2","18:35"]],"PLe06Yfmel5bTSpA-2Rxwze7uqAbd7jH1k":[["Oy7gb39Px3U","Potencjał wody i te sprawy","21:53"],["QpYtcc4mD9o","Transport wody w roślinie","21:38"],["DztsFtzTjrg","Rola składników mineralnych, sole mineralne - znaczenie","19:08"],["mqGtJYXYQPw","Intensywność fotosyntezy, gutacja, płacz roślin i inne","26:36"],["KzDbUamdx9k","Wzrost i rozwój roślin","20:55"],["LJbUSUkQ9_w","Hormony roślinne, ruch roślin (reakcja na bodźce)","23:04"]],"PLe06Yfmel5bTzaVefjj8cytuvySpWKH-m":[["EmVckTuW9Zk","Zwierzęta takie i owakie cz.1","20:17"],["U00QiKCfAdw","Zwierzęta takie i owakie cz.2","19:54"],["F5lP9f8qLxI","Parzydełkowce","22:45"],["ZVPZGVOuaH0","Płazińce i nicienie","22:29"],["ElqIqnRHZYY","Pierścienice (skąposzczety, wieloszczety, pijawki)","19:04"],["O66y7jLQrwg","Mięczaki (ślimaki, małże, głowonogi)","26:46"],["KGUECvZk3Uo","Stawonogi (wstęp i skorupiaki)","26:08"],["j4BDkTtfTQU","Stawonogi (owady, wije, pajęczaki)","30:38"],["TyGyfBR2Mhs","Szkarłupnie (liliowce, rozgwiazdy, jeżowce, itd.)","24:17"],["Vy9PEItKC9Y","Ryby cz.1","14:28"],["ZBrtRd5ZRHc","Ryby cz.2","21:59"],["Gw3neotAOOw","Płazy cz.1","15:25"],["RWhSeyIg3C8","Płazy cz.2","13:42"],["tLJapIm3ww8","Gady cz.1","16:01"],["pK0H4B9I70I","Gady cz.2","19:09"],["WFcPMmcwY_4","Ptaki cz.1","20:34"],["j2ZJAIpoTSk","Ptaki cz.2","24:19"],["Uap4KP54LqU","Ssaki","22:44"]],"PLe06Yfmel5bRwyCsrdD5-H32tdlXVRQqD":[["QEzJLpYQOlk","Tkanki zwierzęce cz.1 - Nabłonkowe","22:43"],["WpOUyJcN0YY","Tkanki zwierzęce cz.2 - Nerwowa","22:57"],["qqnkDrDgD_0","Tkanki zwierzęce cz.3 - Mięśniowa","27:31"],["_W873MgWl9g","Tkanki zwierzęce cz.4 - Łączna właściwa i tłuszczowa","21:22"],["bgffVdXkxP0","Tkanki zwierzęce cz.5 - Kostna i chrzęstna","23:35"],["lOgmdx2xa1k","Homeostaza, środowisko wewnętrzne organizmu","31:18"],["h2xYos14t-o","Układ pokarmowy, anatomia przewodu pokarmowego cz. 1 [uwaga: zryte treści]","17:03"],["-5xnrud8QWg","Układ pokarmowy, anatomia przewodu pokarmowego cz. 2 [uwaga: zryte treści]","15:34"]],"PLe06Yfmel5bQOZ46D_ym7cS3lbTIdbjOr":[["yTYDgx2Psq8","Kod genetyczny, cechy kodu + wstęp do genetyki","25:07"],["0hyx34HeqtA","Replikacja DNA","23:10"],["re19GP-b78U","Genomy - porównanie, transkrypcja","24:24"],["HRgfKBiD2_w","Translacja - drugi etap ekspresji genu","21:42"],["63jHZOUUmTc","Modyfikacje potranslacyjne białek","17:39"],["fUctTFkThAE","Regulacja ekspresji genów u eukariontów","21:19"],["QmFhdghhXDc","Genetyka klasyczna podstawowe pojęcia kluczowe","23:39"],["24CJJBEs100","Genetyka klasyczna - krzyżówki jednogenowe, testowe","23:10"],["5h4KS-6-YqU","Genetyka klasyczna - krzyżówki dwugenowe z dominacją zupełną","21:28"],["ycHFtuXcHMM","Kodominacja i dominacja niezupełna, krzyżówki genetyczne","16:55"],["KvBWqovYalo","Allele wielokrotne, dziedziczenie grup krwi","16:27"],["7TqoLMdu9R4","Dziedziczenie i determinacja płci, cechy (choroby) sprzężone z płcią","25:31"],["dN-Ho2hVuI4","Geny sprzężone, \"chromosomowa teoria dziedziczności Morgana\"","27:26"],["ta_SszeBFcE","Genetyka klasyczna - pozostałe zagadnienia","30:17"],["3vwueMqDq68","Genetyka klasyczna - zadania maturalne cz.1","26:13"],["LvVqnvJMQMc","Genetyka klasyczna - zadania maturalne cz.2","33:10"],["7z2zz7ZQkgU","Zmienność osobnicza i mutacje - definicja i przyczyny mutacji","21:23"],["Xy_kIoelOGQ","Mutacje ciąg dalszy - rodzaje, skutki","27:32"],["vtYHUugs5bU","Choroby genetyczne cz.1 - mukowiscydoza, fenyloketonuria","23:06"],["xqJZ7RTyVrM","Choroby genetyczne cz.2 - pląsawica Huntingtona, hemofilia, daltonizm, zespół Downa itd.","20:56"],["1hR_1nTS4FE","Jeszcze więcej zadań - Zadania z ekspresji genów cz.1","17:52"],["OAIG8OOgnWU","Jeszcze więcej zadań - Zadania z ekspresji genów cz.2","22:30"]],"PLe06Yfmel5bSmlpN5awExDbXq7hbdjt-C":[["7BxkP8xYraY","Metabolizm - matura, maj 2015","33:00"],["7XB2A9Lvz98","Metabolizm - matura, maj 2016","32:10"],["Z4sI5cAWEgE","Metabolizm - matura, maj 2017","30:15"],["SJAwZbsGiJE","Metabolizm - matura, maj 2018","34:04"],["r__OUGCehY0","Metabolizm - matura, maj 2019","24:57"],["N18XMS1plDU","Metabolizm - matura, maj 2020","15:32"],["ZPUNIf7pzUI","Metabolizm - matura, maj 2021","16:49"],["5ZNc-4I5zgY","Metabolizm - matura, maj 2022","21:26"]],"PLe06Yfmel5bQay7Qo3XOhzkZfd6d-ov87":[["Jo8h_OWVU0w","Jednoliścienne i dwuliścienne - jak i po co je rozróżniać?","14:14"],["EyFoitgcMrY","Glaukocystofity (glaukofity) - co mnie one obchodzą?","11:22"],["aK8T1ScwPVI","Synteza i rozkład kwasów tłuszczowych, beta-oksydacja, ketogeneza","16:35"],["HC8FC3Gf_D0","Cykle życiowe (rozmnażanie) grzybów","20:45"],["ezBEczPXzdk","Cykl mocznikowy (notatka do pobrania)","12:35"],["9eq5h2bZkX0","Priony, choroby prionowe","11:28"],["0IVsyiFxQrM","Fotosynteza typu CAM","8:50"],["1r6ch1iCCUs","Fotosynteza typu C4, fotooddychanie","15:41"]],"PLe06Yfmel5bSAm1pD_Hwx5LDFgOmyycHO":[["YQGEZT_krGU","Laktoza - alergia vs. nietolerancja - nie myl pojęć!","10:46"],["h6dKzCH610I","\"Choroba studencka\"? O czym nikt mnie nie uprzedził...","14:49"],["xS218C6nHLY","Anemia sierpowata i przełom w jej leczeniu - terapia genowa","19:38"]],"PLe06Yfmel5bRC8sytHUM5mvUwAz9NvWks":[["uNNV2R5bH0g","Najważniejsza książka jaką Wam polecam*. Must read! [to nie jest płatna promocja]","7:29"],["rMgORV3Nm5w","Jak się uczyłam na studiach? Wspaniałe porady absolwentki biologii (rozczarowanie gwarantowane)","21:04"],["-6OBNNG5YnA","A co jeśli jestem beznadziejny ze wszystkiego? (Obejrzyj nawet jeśli nie myślisz AŻ TAK negatywnie)","33:07"],["zlZzVDYeEK0","Czym jest pasja i co jeśli nie masz żadnej?","26:52"],["EldZoj7xGOE","A co jeśli się do tego nie nadajesz? przyszłość, decyzje, predyspozycje, możliwości i ograniczenia.","24:51"]],"PLe06Yfmel5bTRndcIUkGYv8KS8O85Gfv4":[["tDATafunUMk","Jak Jacek wygrał z komisją egzaminacyjną [ROZMOWA] - odwołanie od wyniku matury, OKE, CKE, kolegium","11:21"]],"PLe06Yfmel5bQG1JmSf19B9Y2a-P-1w7Pq":[["Eisr7LwB3mg","Study with me - 2 godziny, Pomodoro 25/5, edycja świąteczna","1:56:54"]],"PLe06Yfmel5bTZcJEJ-NywVK_Sv9fF_pBv":[["GNDQBDxmKDE","Co nieco o mnie - studia, praca, podręczniki... takie tam","21:37"],["-rLxWvKIY9A","E-papierosy - to vape or not to vape? - odcinek na Waszą prośbę - fakty i moja opinia","18:47"],["4kiCikJLTcM","KONTYNUACJA e-papierosy - dopowiadam ważne rzeczy odpowiadam na Wasze komentarze","25:54"],["5Vw8iMXdXCc","A KIEDY BĘDZIE CZŁOWIEK? i tym podobne pytania. Odpowiadam.","10:32"],["yXsBISTQre4","Drugie życie zwierzaków laboratoryjnych - i jak Ty możesz im pomóc? LabRescue","4:21"],["sOSlV5WAQOM","Rzuciłam dla Was pracę Lajwy (LIVE) na kanale i w ogóle witam w nowym roku szkolnym 2024/25","6:27"],["ClhtlgyEK_U","Co KAŻDY maturzysta MUSI wiedzieć obowiązkowy odcinek must-watch przed maturą","9:52"],["UN4oCK3FTBE","Oświadczenie o (braku) współpracy z firmą EDUTRUST","11:50"],["Lk7o5UypzZ0","Zapraszam na *DARMOWE* zajęcia na Discordzie","6:53"],["hW29_5ufJ_s","Orędzie na rok szkolny 2026/27 - posłuchaj, zanim zadasz pytanie","18:40"]],"PLe06Yfmel5bS7UrHrqjteEgYL0gc-419_":[["cQaQTTbaFi8","Kurs maturalny \"Zrozum matmę\" - opowiadam o kursie","6:01"],["uwK9GqUtwng","Moja opinia o nowym zbiorze zadań maturalnych wyd. Draco - kod rabatowy!","7:29"],["5c2DBztdGVI","Nowy zbiór zadań maturalnych! KOD RABATOWY Aleksandra Pudzianowska - Zrób Więcej. Biologia","4:29"],["SuUm3SQeOeE","\"Biologia. Opowieść o życiu\" Lindsay Turnbull - moja opinia - nowość na rynku","7:44"],["p63d7hnQ_dg","Edukacja domowa z kursami Więcej Niż Matura","12:55"],["tKLIouDFnDA","Zostałam kursantką Więcej niż Matura! - przegląd platformy i nowości na kursach + RABAT","24:10"],["DvNwLKYR7Qo","[OSTATNI DZWONEK NA GWARANCJĘ WYNIKU! ] Dlaczego warto uczyć się z kursami Więcej Niż Matura?","14:48"],["CiXlhYeyLME","Kursy powtórkowe do matury","10:25"],["6NsVZO2cErk","Nowe hity od Oli Pudzianowskiej! Zrób więcej. Biologia must have przed majem KOD RABATOWY","7:35"],["09HKbTWf-gs","Rewolucje na Więcej Niż Matura Gorące newsy z platformy i PROMKA WSiPu","21:11"]]};
+
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function graj(b){
  const id=b.dataset.id;if(!id||b.querySelector('iframe'))return;
@@ -402,21 +294,11 @@ function graj(b){
  b.appendChild(f);b.removeAttribute('aria-label');
  const ep=b.closest('.ep');if(ep)ep.classList.add('gra');
 }
-function wypelnij(d){
- const box=d.querySelector('.odc');if(!box||box.dataset.ok)return;
- box.dataset.ok=1;
- box.innerHTML=(FILMY[d.dataset.pl]||[]).map((v,i)=>'<div class="ep"><button class="th" type="button" data-id="'+v[0]+'" aria-label="Odtwórz: '+esc(v[1])+'"><img src="https://i.ytimg.com/vi/'+v[0]+'/mqdefault.jpg" width="320" height="180" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><p>'+(i+1)+'. '+esc(v[1])+'<span class="d">'+v[2]+'</span></p></div>').join('');
-}
-document.querySelectorAll('details[data-pl]').forEach(d=>{if(d.open)wypelnij(d);d.addEventListener('toggle',()=>{if(d.open)wypelnij(d)})});
 document.addEventListener('click',e=>{const b=e.target.closest('.th');if(b)graj(b)});
 const bt=document.querySelector('.menu-bt'),nav=document.getElementById('nav');
 bt.addEventListener('click',()=>{const o=nav.classList.toggle('otw');bt.setAttribute('aria-expanded',o);bt.textContent=o?'Zamknij':'Menu'});
-nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('otw');bt.setAttribute('aria-expanded','false');bt.textContent='Menu'}});
-document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('kom').textContent='To podgląd - formularz zacznie wysyłać wiadomości na gotowej stronie.'});
 document.getElementById('rok').textContent=new Date().getFullYear();
-const linki=[...nav.querySelectorAll('a')],sek=linki.map(a=>document.querySelector(a.getAttribute('href')));
-const io=new IntersectionObserver(w=>{w.forEach(x=>{if(x.isIntersecting){const i=sek.indexOf(x.target);linki.forEach((a,j)=>a.classList.toggle('akt',j===i))}})},{rootMargin:'-45% 0px -50% 0px'});
-sek.forEach(s=>s&&io.observe(s));
+
 </script>
 </body>
 </html>
